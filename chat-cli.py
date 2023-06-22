@@ -146,7 +146,7 @@ class ChatClient:
         string="inbox {} \r\n" . format(self.tokenid)
         result = self.sendstring(string)
         if result['status']=='OK':
-            return "{}" . format(json.dumps(result['messages']))
+            return "{}" . format(json.dumps(result['message']))
         else:
             return "Error, {}" . format(result['message'])
 
@@ -158,7 +158,7 @@ class ChatClient:
         result = self.sendstring(string)
         print("Received: " + str(result))
         if result['status']=='OK':
-            return "Message received from realm {}: {}".format(realmid, result['messages'])
+            return "Message received from realm {}: {}".format(realmid, result['message'])
         else:
             return "Error, {}".format(result['message'])
 
